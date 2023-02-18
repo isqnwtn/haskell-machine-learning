@@ -4,6 +4,7 @@
 
 * RoadMap for Machine learning and AI
 The following is a speculated roadmap that I will be using to learn machine learning and AI in general. This will be implemented in `Haskell` just for the sake of it :)
+most of this is taken from [[https://i.am.ai/roadmap/#machine-learning-roadmap]]
 
 ** Fundamentals
 *** [ ] Matrices & Linear algebra
