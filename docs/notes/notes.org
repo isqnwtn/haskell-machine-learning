@@ -1,0 +1,49 @@
+#+title: Notes
+#+author: Vismay Raj
+#+date: <2023-02-18 Sat>
+
+* RoadMap for Machine learning and AI
+The following is a speculated roadmap that I will be using to learn machine learning and AI in general. This will be implemented in `Haskell` just for the sake of it :)
+
+** Fundamentals
+*** [ ] Matrices & Linear algebra
+*** [ ] Database basics
+*** [ ] Data Manipulation
+
+** Programming
+Haskell is chosen as the language here because of its extensive capabilities of type level meta programming which will allow us to write much more meaningfull programmes which are robust and secure as well.
+*** [ ] Type level meta programming
+*** [ ] Streamly library
+*** [ ] Accelerate library
+
+** Data sources
+*** [ ] Web scrapping
+*** [ ] Public datasets
+*** [ ] kaggle
+
+** Data Analysis related stuff
+*** [ ] Principle component analysis
+*** [ ] Dimensionality reduction
+*** [ ] Normalization
+*** [ ] Data scurbbing, handling missing values
+*** [ ] Unbiased Estimators
+*** [ ] Binning sparse values
+*** [ ] Feature extraction
+*** [ ] Denoising
+*** [ ] Sampling
+
+** Math needed for Data science
+*** [ ] Probability theory
+*** [ ] Continuous distribution (pdf)
+*** [ ] Descrete distribution (pmf)
+*** [ ] Summary Statistics
+*** [ ] Estimation
+*** [ ] Hypothesis testing
+*** [ ] Confidence interval
+*** [ ] Monte carlo method
+
+** Visualization
+need to look into more libraries in haskell that could be used to visualize these data. also interactive visualization would be nice as well :)
+
+** Machine Learning
+# TODO: gotta fill this stuff but first get started with the previous stuff
