@@ -8,14 +8,17 @@ data ArgOptions = ArgOptions
   , programType :: ProgramType
   }
 
-data ProgramType = RandomGen | LinearAlgebra deriving (Show)
+data ProgramType = RandomGen
+  | LinearAlgebra
+  | Plots
+  deriving (Show)
 
 optargs :: Parser ArgOptions
 optargs = ArgOptions
       <$> switch
-          ( long "quiet"
-         <> short 'q'
-         <> help "Whether to be quiet" )
+          ( long "interactive"
+         <> short 'i'
+         <> help "Interactive mode" )
       <*> option auto
           ( long "debug"
          <> help "How extensively to debug"
@@ -24,6 +27,7 @@ optargs = ArgOptions
          <> metavar "INT" )
       <*> (   flag' RandomGen (long "random-gen" <> help "Generate Random")
           <|> flag' LinearAlgebra (long "linear-algebra" <> help "Linear algebra stuff")
+          <|> flag' Plots (long "plots" <> help "graphical analysis")
           )
 
 main :: IO ()
