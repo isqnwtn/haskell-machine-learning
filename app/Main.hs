@@ -1,6 +1,7 @@
 module Main (main) where
 
 import Options.Applicative
+import Graphics (asciiPlot)
 
 data ArgOptions = ArgOptions
   { quiet      :: Bool
@@ -31,13 +32,14 @@ optargs = ArgOptions
           )
 
 main :: IO ()
-main = greet =<< execParser opts
+main = work =<< execParser opts
   where
     opts = info (optargs <**> helper)
       ( fullDesc
      <> progDesc "HXX - stuff related to haskell and ml and everything that comes with it (hopefully)"
      <> header "some header bruh" )
 
-greet :: ArgOptions -> IO ()
-greet opt = do
-  putStrLn $ "Requested Method:" <> show (programType opt)
+work :: ArgOptions -> IO ()
+work opt = case programType opt of
+  Plots -> asciiPlot sin (0,6.28) 30
+  _ -> print "not implemented yet"

@@ -3,3 +3,6 @@ stack.yaml.lock
 stack.yaml
 ml.cabal
 *~
+
+output/*
+data/*
