@@ -9,6 +9,8 @@ More than a project this is a way of taking notes, related material which are to
 # Building
 The project is maintained using stack. Use the following command to build
 `stack build`
+building other dependencies:
+[Monomer](https://github.com/fjvallarino/monomer/blob/main/docs/tutorials/00-setup.md)
 
 to run use the following command
 `stack run -- <args>`

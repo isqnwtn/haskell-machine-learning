@@ -1,10 +1,10 @@
 module Main (main) where
 
 import Options.Applicative
-import Graphics (asciiPlot)
+import GraphicsLib (asciiPlot)
 
 data ArgOptions = ArgOptions
-  { quiet      :: Bool
+  { interactive      :: Bool
   , debugLevel :: Int
   , programType :: ProgramType
   }
@@ -19,6 +19,7 @@ optargs = ArgOptions
       <$> switch
           ( long "interactive"
          <> short 'i'
+         <> showDefault
          <> help "Interactive mode" )
       <*> option auto
           ( long "debug"
@@ -41,5 +42,5 @@ main = work =<< execParser opts
 
 work :: ArgOptions -> IO ()
 work opt = case programType opt of
-  Plots -> asciiPlot sin (0,6.28) 30
+  Plots -> asciiPlot cos (0,6.28) 30
   _ -> print "not implemented yet"
