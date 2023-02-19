@@ -6,3 +6,4 @@ ml.cabal
 
 output/*
 data/*
+.hie/*
