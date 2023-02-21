@@ -25,6 +25,10 @@ source-repository head
 common common-options
   build-depends:       base ^>= 4.15.1.0
                      , monomer
+                     , data-default
+                     , vector
+                     , OpenGLRaw
+                     , containers
                      , lens
                      , text
                      , text-show
@@ -55,6 +59,9 @@ library
   import:              common-options
   hs-source-dirs:      src
   exposed-modules:     GraphicsLib
+                     , GraphicsLib.Plot
+                     , GraphicsLib.OpenGL
+                     , GraphicsLib.OpenGLWidget
 
 executable hxx
   import:              common-options

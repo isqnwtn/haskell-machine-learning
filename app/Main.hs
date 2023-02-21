@@ -1,46 +1,32 @@
 module Main (main) where
 
 import Options.Applicative
-import GraphicsLib (asciiPlot)
+import GraphicsLib (asciiPlot, monomerGUI)
+import GraphicsLib.Plot (plotTest)
+import GraphicsLib.OpenGL
 
-data ArgOptions = ArgOptions
-  { interactive      :: Bool
-  , debugLevel :: Int
-  , programType :: ProgramType
-  }
-
-data ProgramType = RandomGen
+data ArgOptions = RandomGen
   | LinearAlgebra
-  | Plots
-  deriving (Show)
+  | Plots String
+  | MonomerBased
 
-optargs :: Parser ArgOptions
-optargs = ArgOptions
-      <$> switch
-          ( long "interactive"
-         <> short 'i'
-         <> showDefault
-         <> help "Interactive mode" )
-      <*> option auto
-          ( long "debug"
-         <> help "How extensively to debug"
-         <> showDefault
-         <> value 0
-         <> metavar "INT" )
-      <*> (   flag' RandomGen (long "random-gen" <> help "Generate Random")
-          <|> flag' LinearAlgebra (long "linear-algebra" <> help "Linear algebra stuff")
-          <|> flag' Plots (long "plots" <> help "graphical analysis")
-          )
+argParser :: Parser ArgOptions
+argParser =  flag' RandomGen (long "random-gen" <> help "Generate Random")
+           <|> flag' LinearAlgebra (long "linear-algebra" <> help "Linear algebra stuff")
+           <|> Plots <$> strOption (long "plots" <> help "output path")
+           <|> flag' MonomerBased (long "gui" <> help "graphical user interface")
+
 
 main :: IO ()
 main = work =<< execParser opts
   where
-    opts = info (optargs <**> helper)
+    opts = info (argParser <**> helper)
       ( fullDesc
      <> progDesc "HXX - stuff related to haskell and ml and everything that comes with it (hopefully)"
      <> header "some header bruh" )
 
 work :: ArgOptions -> IO ()
-work opt = case programType opt of
-  Plots -> asciiPlot cos (0,6.28) 30
+work opt = case opt of
+  Plots _  -> plotTest
+  MonomerBased  -> openGLmain
   _ -> print "not implemented yet"

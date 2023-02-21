@@ -52,3 +52,6 @@ need to look into more libraries in haskell that could be used to visualize thes
 
 ** Machine Learning
 # TODO: gotta fill this stuff but first get started with the previous stuff
+
+* Other useful Links
+** [[https://www.datahaskell.org/][data haskell]]
