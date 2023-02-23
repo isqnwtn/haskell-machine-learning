@@ -30,7 +30,7 @@ dependencies:
 - lens
 - text
 - text-show
-
+- massiv
 
 ghc-options:
 - -Wall
