@@ -1,74 +1,92 @@
-cabal-version:       3.0
-name:                hxx
-version:             0.0.0.0
-synopsis:            See README for more info
-description:
-    See README for more info.
-    See [README.md](https://github.com/jaryamsiv/hxx#hxx) for more details.
-homepage:            https://github.com/jaryamsiv/hxx
-bug-reports:         https://github.com/jaryamsiv/hxx/issues
-license:             MIT
-license-file:        LICENSE
-author:              Vismay Raj
-maintainer:          Vismay Raj <vismayraj1@gmail.com>
-copyright:           2023 Vismay Raj
-category:            Math
-build-type:          Simple
-extra-doc-files:     README.md
-                     CHANGELOG.md
-tested-with:         GHC == 9.0.2
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           hxx
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/isqnwtn/hxx#readme>
+homepage:       https://github.com/isqnwtn/hxx#readme
+bug-reports:    https://github.com/isqnwtn/hxx/issues
+author:         Vismay
+maintainer:     vismayraj1@gmail.com
+copyright:      2023 Vismay
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
 
 source-repository head
-  type:                git
-  location:            https://github.com/jaryamsiv/hxx.git
-
-common common-options
-  build-depends:       base ^>= 4.15.1.0
-                     , monomer
-                     , data-default
-                     , vector
-                     , OpenGLRaw
-                     , containers
-                     , lens
-                     , text
-                     , text-show
-                     , optparse-applicative
-
-  ghc-options:         -Wall
-                       -Wcompat
-                       -Widentities
-                       -Wincomplete-uni-patterns
-                       -Wincomplete-record-updates
-                       -Wredundant-constraints
-                       -Wnoncanonical-monad-instances
-  if impl(ghc >= 8.2)
-    ghc-options:       -fhide-source-paths
-  if impl(ghc >= 8.4)
-    ghc-options:       -Wmissing-export-lists
-                       -Wpartial-fields
-  if impl(ghc >= 8.8)
-    ghc-options:       -Wmissing-deriving-strategies
-                       -fwrite-ide-info
-                       -hiedir=.hie
-  if impl(ghc >= 8.10)
-    ghc-options:       -Wunused-packages
-
-  default-language:    Haskell2010
+  type: git
+  location: https://github.com/isqnwtn/hxx
 
 library
-  import:              common-options
-  hs-source-dirs:      src
-  exposed-modules:     GraphicsLib
-                     , GraphicsLib.Plot
-                     , GraphicsLib.OpenGL
-                     , GraphicsLib.OpenGLWidget
+  exposed-modules:
+      GraphicsLib
+      GraphicsLib.OpenGL
+      GraphicsLib.OpenGLWidget
+      GraphicsLib.Plot
+      Lib
+  other-modules:
+      Paths_hxx
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      OpenGLRaw
+    , base >=4.7 && <5
+    , containers
+    , data-default
+    , lens
+    , monomer
+    , optparse-applicative
+    , text
+    , text-show
+    , vector
+  default-language: Haskell2010
 
-executable hxx
-  import:              common-options
-  hs-source-dirs:      app
-  main-is:             Main.hs
-  build-depends:       hxx
-  ghc-options:         -threaded
-                       -rtsopts
-                       -with-rtsopts=-N
+executable hxx-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_hxx
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      OpenGLRaw
+    , base >=4.7 && <5
+    , containers
+    , data-default
+    , hxx
+    , lens
+    , monomer
+    , optparse-applicative
+    , text
+    , text-show
+    , vector
+  default-language: Haskell2010
 
+test-suite hxx-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_hxx
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      OpenGLRaw
+    , base >=4.7 && <5
+    , containers
+    , data-default
+    , hxx
+    , lens
+    , monomer
+    , optparse-applicative
+    , text
+    , text-show
+    , vector
+  default-language: Haskell2010
