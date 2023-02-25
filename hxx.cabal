@@ -1,6 +1,6 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.35.0.
+-- This file has been generated from package.yaml by hpack version 0.35.1.
 --
 -- see: https://github.com/sol/hpack
 
@@ -25,6 +25,7 @@ source-repository head
 
 library
   exposed-modules:
+      Arr
       GraphicsLib
       GraphicsLib.OpenGL
       GraphicsLib.OpenGLWidget
@@ -36,14 +37,18 @@ library
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
-      OpenGLRaw
+      MonadRandom
+    , OpenGLRaw
     , base >=4.7 && <5
     , containers
     , data-default
+    , hmatrix
     , lens
     , massiv
     , monomer
     , optparse-applicative
+    , singletons
+    , singletons-base
     , text
     , text-show
     , vector
@@ -57,15 +62,19 @@ executable hxx-exe
       app
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      OpenGLRaw
+      MonadRandom
+    , OpenGLRaw
     , base >=4.7 && <5
     , containers
     , data-default
+    , hmatrix
     , hxx
     , lens
     , massiv
     , monomer
     , optparse-applicative
+    , singletons
+    , singletons-base
     , text
     , text-show
     , vector
@@ -80,15 +89,19 @@ test-suite hxx-test
       test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      OpenGLRaw
+      MonadRandom
+    , OpenGLRaw
     , base >=4.7 && <5
     , containers
     , data-default
+    , hmatrix
     , hxx
     , lens
     , massiv
     , monomer
     , optparse-applicative
+    , singletons
+    , singletons-base
     , text
     , text-show
     , vector

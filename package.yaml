@@ -31,6 +31,10 @@ dependencies:
 - text
 - text-show
 - massiv
+- hmatrix
+- MonadRandom
+- singletons
+- singletons-base
 
 ghc-options:
 - -Wall
